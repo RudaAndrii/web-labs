@@ -1,0 +1,282 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+
+
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+header {
+    background-color: #FEE936;
+    height: 120px;
+}
+
+header .container {
+    width: 1200px;
+    margin: 0 auto;
+    height: 120px;
+}
+
+header .container .logo {
+    width: 20%;
+    height: 120px;
+    float: left;
+}
+
+header .container .logo img{
+    display: block;
+    width: 120px;
+    height: 120px;
+    margin: 0 auto;
+    filter: brightness(0%);
+}
+
+header .container ul {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 80%;
+    padding-left: 0;
+    float: right;
+}
+
+header .container li {
+    list-style: none;
+    display: inline-block;
+    width: calc(100% / 7);
+    height: 120px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+header .container li a {
+    display: block;
+    margin: auto 0;
+    line-height: 60px;
+    font-size: 18px;
+    text-decoration: none;
+    color: black;
+}
+
+header .container li .dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+header .container li .dropdown .dropdown-content {
+    border-radius: 30px;
+    padding-top: 10px;
+    width: calc(1200px * 0.8 / 7);
+    position: absolute;
+    display: none;
+}
+
+header .container li .dropdown .dropdown-content a {
+    color: black;
+    text-decoration: none;
+    text-align: center;
+    display: block;
+    background-color: #FEE936;
+}
+
+header .container li .dropdown .dropbtn {
+    border: none;
+    background: transparent;
+    color: black;
+    font-size: 18px;
+    text-decoration: none;
+}
+
+header .container li .dropdown .dropbtn:hover .dropdown-content {
+    display: block;
+    border-radius: 30px;
+}
+
+header .container li .dropdown:hover .dropdown-content {
+    display: block;
+}
+
+header .container li .dropdown .dropdown-content:hover {
+    background-color: #FEE936;
+    display: block;
+}
+
+header .container li .dropdown .dropdown-content a:hover {
+    background-color: #FEE936;
+}
+
+header .container li .dropdown .dropdown-content a:hover .dropdown-content{
+    background-color: #FEE936;
+    display: block;
+}
+
+body {
+    background-color: #FEE936;
+}
+
+.main-img {
+    width: 100%;
+    height: 600px;
+    object-fit: cover;
+    object-position: top;
+}
+
+main .container {
+    width: 1200px;
+    margin: 0 auto;
+}
+
+
+main .container .group .title{
+    text-align: center;
+    color:black;
+    font-size: 40px;
+    height: 100px;
+    line-height: 100px;
+}
+
+main .container .group .members {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    color: black;
+    width: 100%;
+    height: 600px;
+    background-color: #FEE936;
+}
+
+main .container .group .members .tyler {
+    padding-top: 20px;
+    display: block;
+    width: 400px;
+    text-align: center;
+    float: left;
+}
+
+main .container .group .members .josh {
+    padding-top: 20px;
+    display: block;
+    width: 400px;
+    text-align: center;
+    float: right;
+}
+
+main .container .group .members .tyler h1 {
+    font-size: 24px;
+}
+
+main .container .group .members .josh h1 {
+    font-size: 24px;
+}
+
+main .container .group .members .tyler img {
+    padding-top: 20px;
+    width: 400px;
+    height: 400px;
+    object-fit: cover;
+    object-position: center;
+}
+
+main .container .group .members .josh img {
+    padding-top: 20px;
+    width: 400px;
+    height: 400px;
+    object-fit: cover;
+    object-position: center;
+}
+
+main .container .group .members .tyler h4 {
+    padding-top: 20px;
+}
+
+main .container .group .members .josh h4 {
+    padding-top: 20px;
+}
+
+main .container .album {
+    width: 800px;
+    margin: 0 auto;
+}
+
+main .container .album .title {
+    margin-top: 40px;
+    font-size: 24px;
+    height: 50px;
+    text-align: center;
+}
+
+main .container .album .trench h1 {
+    text-align: center;
+}
+
+main .container .album .trench {
+    width: 800px;
+}
+
+main .container .album .trench img {
+    width: 800px;
+    object-fit: cover;
+    object-position: center;
+}
+
+main .container .album h4 {
+    padding-top: 20px;
+    text-align: center;
+}
+
+footer {
+    height: 100px;
+    line-height: 100px;
+    text-align: center;
+}
+
+
+* {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif !important;
+}
