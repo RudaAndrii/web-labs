@@ -1,0 +1,30 @@
+CACHE MANIFEST
+
+CACHE:
+http://localhost:3000/static/styles/styles.css
+
+http://localhost:3000/static/images/bg.jpg
+http://localhost:3000/static/images/josh.gif
+http://localhost:3000/static/images/logo.png
+http://localhost:3000/static/images/texture.jpg
+http://localhost:3000/static/images/top-trench.jpg
+http://localhost:3000/static/images/tyler-joseph.jpg
+
+http://localhost:3000/
+http://localhost:3000/admin
+http://localhost:3000/concert
+http://localhost:3000/fans
+http://localhost:3000/tour
+http://localhost:3000/error
+
+NETWORK:
+*
+
+FALLBACK:
+http://localhost:3000/ http://localhost:3000/error
+http://localhost:3000/index http://localhost:3000/error
+http://localhost:3000/admin http://localhost:3000/error
+http://localhost:3000/concert http://localhost:3000/error
+http://localhost:3000/fans http://localhost:3000/error
+http://localhost:3000/news http://localhost:3000/error
+http://localhost:3000/tour http://localhost:3000/error
