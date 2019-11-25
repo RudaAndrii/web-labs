@@ -1,4 +1,4 @@
-import validate from '../helpers/admin.validate.js'
+import validate from '../helpers/page.validate.js';
 import clearUl from "../ui/clearUl.js";
 import appendElements from "../ui/appendElements.js";
 
@@ -12,12 +12,14 @@ const handleSubmit = event => {
     event.preventDefault();
     let errorMessages;
 
-    const newsTitle = window.document.getElementById('newsTitle');
-    const newsBody = window.document.getElementById('newsBody');
-    const errorBlock = window.document.getElementById('errorBlock');
+    const appealUsername = window.document.getElementById('appealUsername');
+    const appealTitle = window.document.getElementById('appealTitle');
+    const appealBody = window.document.getElementById('appealBody');
     const successBlock = window.document.getElementById('successBlock');
 
-    errorMessages = validate(newsTitle, newsBody);
+    const errorBlock = window.document.getElementById('errorBlock');
+
+    errorMessages = validate(appealUsername, appealTitle, appealBody);
 
     clearUl(errorBlock);
     errorMessages.length > 0 ? appendElements(errorBlock, errorMessages) : appendElements(successBlock, ['Saved']);
