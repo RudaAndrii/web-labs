@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en" manifest="/static/cache/manifest.appcache">
+<!--<html lang="en" manifest="/static/cache/manifest.appcache">-->
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -10,6 +11,9 @@
 </head>
 
 <body>
+    <script defer src="/static/api/pages/admin.page.js" type="module"></script>
+
+
     <div class="content">
 
         <header style="z-index: 100;"> 
@@ -61,19 +65,21 @@
         <main>
             <div class="container">
                 <img class="text-center" src="#" alt="Choose an image">
-                <form class="mt-5">
-
+                <form id="submitForm" class="mt-5">
+                    <div>
+                        <ul id="errorBlock" style="list-style: none"></ul>
+                    </div>
                     <div class="form-group">
                         <label for="exampleFormControlFile1">Example file input</label>
                         <input type="file" class="form-control-file" id="exampleFormControlFile1">
                     </div>
                     <div class="form-group">
-                        <label for="exampleFormControlInput1">News title</label>
-                        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="News title">
+                        <label for="newsTitle">News title</label>
+                        <input type="text" class="form-control" id="newsTitle" placeholder="News title">
                     </div>
                     <div class="form-group">
-                        <label for="exampleFormControlTextarea1">News body</label>
-                        <textarea class="form-control" id="exampleFormControlTextarea1" placeholder="News body"
+                        <label for="newsBody">News body</label>
+                        <textarea class="form-control" id="newsBody" placeholder="News body"
                             rows="3"></textarea>
                     </div>
                     <button type="submit" class="btn btn-primary">Submit</button>
