@@ -1,8 +1,8 @@
-export default function(errorBlock, errorMessages) {
-    let li = window.document.createElement('li');
+export function appendSimpleMessage(block, messages) {
+    let appendMessages = messages;
 
-    errorMessages.forEach(message => {
-        li.appendChild(window.document.createTextNode(message + '\n'));
-        errorBlock.appendChild(li);
+    appendMessages = !Array.isArray(appendMessages) ? [appendMessages] : appendMessages;
+    appendMessages.forEach(message => {
+        $(`#${block}`).append(message);
     })
 }

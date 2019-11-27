@@ -1,6 +1,9 @@
 import validate from '../helpers/admin.validate.js'
 import clearUl from "../ui/clearUl.js";
-import appendElements from "../ui/appendElements.js";
+import {appendSimpleMessage} from "../ui/appendElements.js";
+import LocalStorageManager from '../managers/LocalStorageManager.js';
+
+const localStorageManager = new LocalStorageManager();
 
 const initPage = () => {
     const form = window.document.getElementById('submitForm');
@@ -10,17 +13,22 @@ const initPage = () => {
 
 const handleSubmit = event => {
     event.preventDefault();
+
     let errorMessages;
 
     const newsTitle = window.document.getElementById('newsTitle');
     const newsBody = window.document.getElementById('newsBody');
-    const errorBlock = window.document.getElementById('errorBlock');
-    const successBlock = window.document.getElementById('successBlock');
 
     errorMessages = validate(newsTitle, newsBody);
 
-    clearUl(errorBlock);
-    errorMessages.length > 0 ? appendElements(errorBlock, errorMessages) : appendElements(successBlock, ['Saved']);
+    clearUl('errorBlock');
+    if (errorMessages.length) {
+        appendSimpleMessage('errorBlock', errorMessages)
+    } else {
+        localStorageManager.save('news', {newsTitle, newsBody});
+        appendSimpleMessage('successBlock', ['Saved']);
+    }
+
 };
 
 

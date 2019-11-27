@@ -1,6 +1,5 @@
 import validateValue from "./validateValue.js";
 
-
 export default function (...args) {
     const errorMessages = [];
     const [newsTitle, newsBody] = args;
