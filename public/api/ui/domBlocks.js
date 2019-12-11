@@ -1,6 +1,6 @@
 export function getNews({newsTitle, newsBody}) {
     return `
-            <div class="row">
+            
                 <div class="col-md-4">
                   <div class="card mb-4 box-shadow">
                     <img class="card-img-top" src="/static/images/tyler-joseph.jpg" alt="Card image cap">
@@ -17,7 +17,7 @@ export function getNews({newsTitle, newsBody}) {
                     </div>
                   </div>
                 </div>
-              </div>
+
 `
 }
 
