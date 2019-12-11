@@ -24,14 +24,14 @@ export function getNews({newsTitle, newsBody}) {
 export function getAppeal({appealTitle, appealUsername, appealBody}) {
     return `
         <li>
-        <a href="#" class="list-group-item list-group-item-action flex-column align-items-start mt-3">
-                            <div class="d-flex w-100 justify-content-between">
-                                <h5 class="mb-1">${appealTitle}</h5>
-                                <small>by ${appealUsername}</small>
-                            </div>
-                            <p class="mb-1">${appealBody}</p>
-                            <small>Donec id elit non mi porta.</small>
-                        </a>
-</li>
+          <div class="list-group-item list-group-item-action flex-column align-items-start mt-3">
+            <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1">${appealTitle}</h5>
+                <small>by ${appealUsername}</small>
+            </div>
+            <div style="word-wrap: break-word;"><p class="mb-3 w-100">${appealBody}</p></div>
+            <small>Donec id elit non mi porta.</small>
+          </div>
+      </li>   
     `
 }
