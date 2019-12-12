@@ -1,15 +1,21 @@
 import {appendSimpleMessage} from "../ui/appendElements.js";
-import LocalStorageManager from '../managers/LocalStorageManager.js';
+import DBManager from '../managers/DBManager.js';
 import {getNews} from "../ui/domBlocks.js";
+import useLocalStorage from '../constant/DBConfig.js';
 
-const localStorageManager = new LocalStorageManager();
+const dbManager = new DBManager();
 
 
 
 const launchPage = () => {
-    let allNews = localStorageManager.all('news');
-
-    allNews.forEach(news => appendSimpleMessage('newsBlock', getNews(news)))
+    if(useLocalStorage) {
+        let allNews = dbManager.all('news');
+        allNews.forEach(news => appendSimpleMessage('newsBlock', getNews(news)));
+    } else {
+        dbManager.all('news').then((items) => {
+            items.forEach(news => appendSimpleMessage('newsBlock', getNews(news)));
+        });
+    }
 };
 
 launchPage();

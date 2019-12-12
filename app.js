@@ -3,6 +3,7 @@ const express = require('express');
 const path = require('path');
 const app = express();
 const port = 3000;
+const useLocalStorage = false;
 
 app.engine('html', cons.swig);
 app.set('views', path.join(__dirname, 'views'));

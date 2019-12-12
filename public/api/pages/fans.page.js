@@ -1,18 +1,28 @@
 import validate from '../helpers/page.validate.js';
 import clearUl from "../ui/clearUl.js";
-import LocalStorageManager from "../managers/LocalStorageManager.js";
+import DBManager from '../managers/DBManager.js';
 import {appendSimpleMessage} from "../ui/appendElements.js";
 import {getAppeal} from "../ui/domBlocks.js";
+import useLocalStorage from '../constant/DBConfig.js';
 
-const localStorageManager = new LocalStorageManager();
+const dbManager = new DBManager();
 
 const initPage = () => {
-    let allAppeals = localStorageManager.all('appeals');
-    allAppeals.forEach(appeal => appendSimpleMessage('appealsBlock', getAppeal(appeal)));
-
-    const form = window.document.getElementById('submitForm');
-    form.addEventListener('submit', handleSubmit);
-
+    if(useLocalStorage) {
+        let allAppeals = dbManager.all('appeals');
+        allAppeals.forEach(appeal => appendSimpleMessage('appealsBlock', getAppeal(appeal)));
+    
+        const form = window.document.getElementById('submitForm');
+        form.addEventListener('submit', handleSubmit);
+    } else {
+        dbManager.all('appeals').then((items) => {
+            console.log(items);
+            items.forEach(appeal => appendSimpleMessage('appealsBlock', getAppeal(appeal)));
+    
+            const form = window.document.getElementById('submitForm');
+            form.addEventListener('submit', handleSubmit);
+        });
+    }
 };
 
 const handleSubmit = event => {
@@ -29,7 +39,7 @@ const handleSubmit = event => {
     if (errorMessages.length) {
         appendSimpleMessage('errorBlock', errorMessages)
     } else {
-        let newObject = localStorageManager.save('appeals', {appealTitle, appealUsername, appealBody});
+        let newObject = dbManager.save('appeals', {appealTitle, appealUsername, appealBody});
         appendSimpleMessage('successBlock', ['Saved']);
         appendSimpleMessage('appealsBlock', getAppeal(newObject));
     }
