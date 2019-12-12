@@ -2,6 +2,7 @@ import validate from '../helpers/admin.validate.js'
 import clearUl from "../ui/clearUl.js";
 import {appendSimpleMessage} from "../ui/appendElements.js";
 import DBManager from '../managers/DBManager.js';
+import {getNews} from "../ui/domBlocks.js";
 
 const dbManager = new DBManager();
 
@@ -25,11 +26,18 @@ const handleSubmit = event => {
     if (errorMessages.length) {
         appendSimpleMessage('errorBlock', errorMessages)
     } else {
-        dbManager.save('news', {newsTitle, newsBody});
-        appendSimpleMessage('successBlock', ['Saved']);
+        let news = {"news": {"newsTitle": newsTitle.value, "newsBody": newsBody.value}};
+        console.log(news);
+        fetch("http://localhost:3000/news", {
+            credentials: 'same-origin',
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json;charset=UTF-8',
+            },
+            body: JSON.stringify(news),
+        }).then(r => appendSimpleMessage('successBlock', ['Saved']));
+
     }
-
 };
-
 
 initPage();

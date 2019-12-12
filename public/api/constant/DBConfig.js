@@ -1,3 +1,3 @@
-const useLocalStorage = false;
+const useLocalStorage = true;
 
 export default useLocalStorage;
