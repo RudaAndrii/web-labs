@@ -13,4 +13,4 @@ module.exports = {
         let appeals = await Appeal.find();
         return res.status(200).send(appeals);
     }
-}
+};
